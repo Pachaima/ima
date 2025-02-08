@@ -10,7 +10,7 @@ from ultralytics import YOLOv10
 from paddleocr import PaddleOCR
 
 # Charger les modèles YOLO et PaddleOCR
-model = YOLOv10("./weights/best.pt")  # Remplacez par le chemin de votre modèle YOLO
+model = YOLOv10("./best.pt")  # Remplacez par le chemin de votre modèle YOLO
 ocr = PaddleOCR(use_angle_cls=True, use_gpu=False)
 
 # Fonction OCR pour détecter le texte sur une plaque
