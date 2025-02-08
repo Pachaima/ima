@@ -6,11 +6,11 @@ import os
 import numpy as np
 import re
 from KalmanFilter import KalmanFilter
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 from paddleocr import PaddleOCR
 
 # Charger les modèles YOLO et PaddleOCR
-model = YOLOv10("./best.pt")  # Remplacez par le chemin de votre modèle YOLO
+model = YOLO("./best.pt")  # Remplacez par le chemin de votre modèle YOLO
 ocr = PaddleOCR(use_angle_cls=True, use_gpu=False)
 
 # Fonction OCR pour détecter le texte sur une plaque
