@@ -12,7 +12,7 @@ import re
 
 
 # Charger les modèles YOLO et PaddleOCR
-model = YOLO("./best.pt")  # Remplacez par le chemin de votre modèle YOLO
+model = YOLO("best.pt")  # Remplacez par le chemin de votre modèle YOLO
 ocr = PaddleOCR(use_angle_cls=True, use_gpu=False)
 
 # Fonction OCR pour détecter le texte sur une plaque
@@ -107,7 +107,7 @@ def get_base64(file_path):
     with open(file_path, "rb") as file:
         data = base64.b64encode(file.read()).decode()
     return data
-img_base64 = get_base64("./car_1.jfif.jpg")  # Image de fond
+img_base64 = get_base64("car_1.jfif.jpg")  # Image de fond
 page_bg_img = f"""
 <style>
     .stApp {{
