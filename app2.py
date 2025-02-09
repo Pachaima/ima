@@ -1,15 +1,13 @@
+import streamlit as st
+import cv2
+import time
+import tempfile
+import os
+import numpy as np
+import re
 from KalmanFilter import KalmanFilter
 from ultralytics import YOLO
 from paddleocr import PaddleOCR
-import streamlit as st
-import numpy as np
-import tempfile
-import base64
-import cv2
-import time
-import os
-import re
-
 
 # Charger les modèles YOLO et PaddleOCR
 model = YOLO("best.pt")  # Remplacez par le chemin de votre modèle YOLO
