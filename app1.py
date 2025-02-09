@@ -133,4 +133,3 @@ if uploaded_video and car_plate:
     else:
         st.error("Erreur : La vidéo traitée n'a pas été trouvée ou n'existe pas.")
 
-   st.video(output_video_path)
