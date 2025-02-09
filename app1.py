@@ -133,6 +133,4 @@ if uploaded_video and car_plate:
     else:
         st.error("Erreur : La vidéo traitée n'a pas été trouvée ou n'existe pas.")
 
-    # Ajoutez des messages de débogage pour vérifier le chemin du fichier
-    st.write(f"Chemin de la vidéo traitée : {output_video_path}")
-    st.write(f"Existence du fichier : {os.path.exists(output_video_path)}")
+   st.video(output_video_path)
