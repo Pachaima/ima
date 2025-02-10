@@ -8,6 +8,7 @@ import re
 from KalmanFilter import KalmanFilter
 from ultralytics import YOLO
 from paddleocr import PaddleOCR
+import base64
 
 # Charger les modèles YOLO et PaddleOCR
 model = YOLO("best.pt")  # Remplacez par le chemin de votre modèle YOLO
@@ -100,8 +101,26 @@ def process_video(video_path, car_plate):
     return output_path
 
 # Interface Streamlit
-st.title("🚗 Suivi de plaques avec YOLO, OCR et Kalman Filter")
+# ajout de l'image au background
+def get_base64(file_path):
+    with open(file_path, "rb") as file:
+        data = base64.b64encode(file.read()).decode()
+    return data
+img_base64 = get_base64("./car_1.jfif.jpg")  # Image de fond
+page_bg_img = f"""
+<style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{img_base64}");
+        background-size: cover;
+        background-position: center;
+      }}
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown("# Détection de véhicules et reconnaissance de plaques")
+
 st.write("Détection et suivi de plaques avec arrêt automatique après 100 secondes.")
+
 
 # Entrée utilisateur
 car_plate = st.text_input("🔎 Entrez la plaque recherchée :", "")
